@@ -1,0 +1,69 @@
+---
+title: "Mapping"
+author: "Runze Jiang"
+date: "2022/10/5"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+#first map for China
+library(maps)
+library(mapdata)
+library(mapproj)
+library(ggplot2)
+library(readr)
+
+map(database = "world",regions = "China",exact = "FALSE",
+    col = "blue2",xlim=c(70,140),panel.first=grid(),bg="red")
+#second map for data analysis
+library(RgoogleMaps)
+data("incidents")
+plotmap(
+  lon = lon,lat = lat, data = incidents, 
+  col = 'violent', zoom = 12,
+  cex=0.5, pch=20,maptype = "roadmap",
+  alpha = 1
+)
+
+
+
+
+```
+
+The first map is Graphing the map of China and I choose the background color with red because the national flag is filled with red. R is amazing and I just feel incredible I can draw my motherland!
+
+The second part
+1.Data source:
+For here, I select the data named "incidents" inside Rgooglemaps. It records the crime data in San Francisco in year 2012.
+
+
+2.Spatial units being displayed
+The spatial units being displayed is the place the police went for crime in the year. The variables longitude and latitude in the R code helps build the map and the zoom=12 will make the graph looks comfortable. Besides,the map type I select roadmap because it represents the map inside the San Francisco.
+
+3.Research question:
+How does the incidents(crime) basically distribute in the city?
+
+4.Research conclusion:
+I would like to tell that more crimes happen in the northeast part of the city rather than other parts of San Francisco because most of the plots in the map gather there.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
